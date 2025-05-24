@@ -10,3 +10,4 @@ namespace PlataformaNoticias.Data
         public DbSet<Feedback> Feedbacks { get; set; } = null!;
     }
 }
+//cambios2
