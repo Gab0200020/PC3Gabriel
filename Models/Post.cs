@@ -8,3 +8,4 @@ namespace PlataformaNoticias.Models
         public string Body { get; set; } = string.Empty;
     }
 }
+//MVC

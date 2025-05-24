@@ -12,3 +12,4 @@ namespace PlataformaNoticias.Services
         Task<List<Comment>?> ObtenerComentariosPorPostIdAsync(int postId);
     }
 }
+//MVC

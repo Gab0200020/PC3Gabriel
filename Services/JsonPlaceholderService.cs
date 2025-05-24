@@ -109,3 +109,4 @@ namespace PlataformaNoticias.Services
         }
     }
 }
+//MVC

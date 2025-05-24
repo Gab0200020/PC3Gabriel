@@ -9,3 +9,4 @@ namespace PlataformaNoticias.Models
         public List<Comment> Comentarios { get; set; } = new();
     }
 }
+//MVC
