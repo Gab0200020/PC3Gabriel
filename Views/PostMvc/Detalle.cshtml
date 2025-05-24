@@ -1,0 +1,57 @@
+@model PlataformaNoticias.Models.PostDetalleViewModel
+
+@{
+    ViewData["Title"] = "Detalle de noticia";
+}
+
+<div class="container my-5">
+    <h1 class="mb-3">@Model.Post.Title</h1>
+
+    <p>@Model.Post.Body</p>
+
+    <hr />
+
+    <h4>Autor</h4>
+    @if (Model.Autor != null)
+    {
+        <p>@Model.Autor.Name (@Model.Autor.Email)</p>
+    }
+    else
+    {
+        <p class="text-muted">Información del autor no disponible.</p>
+    }
+
+    <h4>Comentarios</h4>
+    @if (Model.Comentarios.Count > 0)
+    {
+        <ul class="list-group mb-4">
+            @foreach (var c in Model.Comentarios)
+            {
+                <li class="list-group-item">
+                    <strong>@c.Name</strong> (<a href="mailto:@c.Email">@c.Email</a>): @c.Body
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p class="text-muted">No hay comentarios para este post.</p>
+    }
+
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-warning">@ViewBag.Error</div>
+    }
+
+    <form asp-action="EnviarFeedback" method="post" class="d-flex gap-3">
+        <input type="hidden" name="postId" value="@Model.Post.Id" />
+        <button type="submit" name="sentimiento" value="like" class="btn btn-success">
+            👍 Me gustó
+        </button>
+        <button type="submit" name="sentimiento" value="dislike" class="btn btn-danger">
+            👎 No me gustó
+        </button>
+    </form>
+
+    <a href="@Url.Action("Listar", "PostMvc")" class="btn btn-link mt-4">← Volver a la lista</a>
+</div>

@@ -1,0 +1,24 @@
+@model List<PlataformaNoticias.Models.Post>
+
+@{
+    ViewData["Title"] = "Noticias";
+}
+
+<div class="container my-5">
+    <h1 class="mb-4">Noticias</h1>
+
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">@ViewBag.Error</div>
+    }
+
+    <div class="list-group">
+        @foreach (var post in Model)
+        {
+            <a href="@Url.Action("Detalle", "PostMvc", new { id = post.Id })" class="list-group-item list-group-item-action">
+                <h5 class="mb-1">@post.Title</h5>
+                <p class="mb-1 text-truncate" style="max-width: 600px;">@post.Body</p>
+            </a>
+        }
+    </div>
+</div>

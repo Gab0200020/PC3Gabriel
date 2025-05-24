@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] - PlataformaNoticias</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="~/images/indv.png" />
+
+    <style>
+        body {
+            background-color:rgb(241, 232, 199); /* blanco pastel */
+        }
+        .navbar-top {
+            background-color: #141414;
+            border-bottom: 1px solid #ddd;
+        }
+        .navbar-bottom {
+            background-color: #ffffff;
+            padding: 1.5rem 0;
+            border-bottom: 2px solid #ccc;
+        }
+        .navbar-logo-left {
+            height: 40px;
+            margin-left: 1rem;
+        }
+        .navbar-logo-center {
+            height: 120px; /* logo grande agrandado */
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- Navbar superior -->
+    <nav class="navbar navbar-expand navbar-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="@Url.Action("Listar", "PostMvc")">
+                <img src="~/images/indv.png" alt="Logo Pequeño" class="navbar-logo-left" />
+            </a>
+        </div>
+    </nav>
+
+    <!-- Navbar inferior con logo grande -->
+    <nav class="navbar navbar-bottom">
+        <div class="container">
+            <img src="~/images/logo-pc3.png" alt="Logo Grande" class="navbar-logo-center" />
+        </div>
+    </nav>
+
+    <main class="flex-fill container py-4">
+        @RenderBody()
+    </main>
+
+    <footer class="bg-dark text-light py-3 mt-auto">
+        <div class="container text-center">
+            <small>&copy; 2025 PlataformaNoticias. Todos los derechos reservados.</small>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
